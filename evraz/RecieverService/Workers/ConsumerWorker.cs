@@ -9,6 +9,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Text.Json;
+using Microsoft.Extensions.DependencyInjection;
+using evraz.Data;
+using evraz.Data.DbEntities;
 
 namespace RecieverService.Workers
 {
@@ -16,10 +20,12 @@ namespace RecieverService.Workers
     {
         private readonly ILogger<ConsumerWorker> _logger;
         private readonly RecieverSettings _settings;
+        private readonly IServiceProvider _serviceProvider;
 
-        public ConsumerWorker(ILogger<ConsumerWorker> logger, RecieverSettings settings)
+        public ConsumerWorker(ILogger<ConsumerWorker> logger, IServiceProvider services, RecieverSettings settings)
         {
             _logger = logger;
+            _serviceProvider = services;
             _settings = settings;
         }
 
@@ -34,14 +40,36 @@ namespace RecieverService.Workers
                      autoDelete: false,
                      arguments: null);
 
-            Console.WriteLine(" [*] Waiting for messages.");
+            _logger.LogInformation(" [*] Waiting for messages.");
 
             var consumer = new EventingBasicConsumer(channel);
             consumer.Received += (model, ea) =>
             {
                 var body = ea.Body.ToArray();
                 var message = Encoding.UTF8.GetString(body);
-                Console.WriteLine($" [x] Received {message}");
+                var serviceScopeFactory = (IServiceScopeFactory)_serviceProvider.GetService(typeof(IServiceScopeFactory));
+                _logger.LogInformation($" [x] Received {message}");
+                using (var scope = serviceScopeFactory.CreateScope())
+                {
+                    try 
+                    {
+                        _logger.LogInformation("Saving to db...");
+                        var services = scope.ServiceProvider;
+                        var dbContext = services.GetRequiredService<ApplicationDbContext>();
+                        var raport = JsonSerializer.Deserialize<Raport>(message);
+                        raport.FormPlace = "Приём загатовок";
+                        raport.FormDate = DateTime.Now;
+                        raport.Responsables = "Fio";
+                        dbContext.Raports.Add(raport);
+                        _logger.LogInformation("Saved");
+                    } 
+                    catch
+                    {
+                        _logger.LogError("something went wrong");
+                    }
+                }
+                
+                
             };
             channel.BasicConsume(queue: "hello",
                                  autoAck: true,

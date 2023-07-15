@@ -17,26 +17,35 @@ namespace RecieverService.Workers
     {
         private readonly ILogger<PublisherWorker> _logger;
         private readonly RecieverSettings _settings;
+        private readonly IServiceProvider _serviceProvider;
 
-        public PublisherWorker(ILogger<PublisherWorker> logger, RecieverSettings settings)
+        public PublisherWorker(ILogger<PublisherWorker> logger, IServiceProvider services, RecieverSettings settings)
         {
             _logger = logger;
             _settings = settings;
+            _serviceProvider = services;
         }
 
-        public async void Publish()
+        public async void Publish(string jsonObject)
         {
+            _logger.LogInformation("Sending message...");
             var factory = new ConnectionFactory() { HostName = _settings.Host};
             using (var connection = factory.CreateConnection())
             {
                 using(var channel = connection.CreateModel())
                 {
-                    channel.QueueDeclare(queue: _settings.Queue,
+                    channel.QueueDeclare(queue: _settings.PublishTo,
                            durable: false,
                            exclusive: false,
                            autoDelete: false,
                            arguments: null);
-                    string message = 
+                    string message = jsonObject;
+                    var body = Encoding.UTF8.GetBytes(message);
+                    channel.BasicPublish(exchange: string.Empty,
+                     routingKey: _settings.PublishTo,
+                     basicProperties: null,
+                     body: body);
+                    _logger.LogInformation($" [x] Sent {message}");
                 }
             }
         }
