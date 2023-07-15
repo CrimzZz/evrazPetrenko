@@ -5,6 +5,21 @@ VisualStudioVersion = 17.6.33829.357
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "evraz", "evraz\evraz.csproj", "{97D79171-7EE2-4D64-850D-3810D8F67EA8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecieverService", "RecieverService\RecieverService.csproj", "{8BC80C90-322B-4A76-A33B-A6D0372F087B}"
+	ProjectSection(ProjectDependencies) = postProject
+		{97D79171-7EE2-4D64-850D-3810D8F67EA8} = {97D79171-7EE2-4D64-850D-3810D8F67EA8}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OwenService", "OwenService\OwenService.csproj", "{64FCE22B-1EC1-4E5F-814F-20BCF4B6BDAF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProfilerService", "ProfilerService\ProfilerService.csproj", "{8BB3083A-9DD5-4FD4-84D4-7A28809A256E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FreezerService", "FreezerService\FreezerService.csproj", "{D617C247-82D9-4C2C-BE33-36FEF3E8EB75}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ControlService", "ControlService\ControlService.csproj", "{198F0DFC-6BFB-427A-AB1B-5C698395FA04}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SenderService", "SenderService\SenderService.csproj", "{37ECD86B-BDD5-4F24-A223-7D003D0F1173}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +30,30 @@ Global
 		{97D79171-7EE2-4D64-850D-3810D8F67EA8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{97D79171-7EE2-4D64-850D-3810D8F67EA8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{97D79171-7EE2-4D64-850D-3810D8F67EA8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8BC80C90-322B-4A76-A33B-A6D0372F087B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8BC80C90-322B-4A76-A33B-A6D0372F087B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8BC80C90-322B-4A76-A33B-A6D0372F087B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8BC80C90-322B-4A76-A33B-A6D0372F087B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{64FCE22B-1EC1-4E5F-814F-20BCF4B6BDAF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{64FCE22B-1EC1-4E5F-814F-20BCF4B6BDAF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{64FCE22B-1EC1-4E5F-814F-20BCF4B6BDAF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{64FCE22B-1EC1-4E5F-814F-20BCF4B6BDAF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8BB3083A-9DD5-4FD4-84D4-7A28809A256E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8BB3083A-9DD5-4FD4-84D4-7A28809A256E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8BB3083A-9DD5-4FD4-84D4-7A28809A256E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8BB3083A-9DD5-4FD4-84D4-7A28809A256E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D617C247-82D9-4C2C-BE33-36FEF3E8EB75}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D617C247-82D9-4C2C-BE33-36FEF3E8EB75}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D617C247-82D9-4C2C-BE33-36FEF3E8EB75}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D617C247-82D9-4C2C-BE33-36FEF3E8EB75}.Release|Any CPU.Build.0 = Release|Any CPU
+		{198F0DFC-6BFB-427A-AB1B-5C698395FA04}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{198F0DFC-6BFB-427A-AB1B-5C698395FA04}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{198F0DFC-6BFB-427A-AB1B-5C698395FA04}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{198F0DFC-6BFB-427A-AB1B-5C698395FA04}.Release|Any CPU.Build.0 = Release|Any CPU
+		{37ECD86B-BDD5-4F24-A223-7D003D0F1173}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{37ECD86B-BDD5-4F24-A223-7D003D0F1173}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{37ECD86B-BDD5-4F24-A223-7D003D0F1173}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{37ECD86B-BDD5-4F24-A223-7D003D0F1173}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

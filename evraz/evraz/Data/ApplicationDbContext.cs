@@ -12,14 +12,8 @@ namespace evraz.Data
         public DbSet<Product> Products { get; set; }
         public DbSet<DefectData> DefectDatas { get; set; }
         public DbSet<Raport> Raports { get; set; }
-        public ApplicationDbContext()
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {
-            Database.EnsureCreated();
-        }
-
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseNpgsql("Host=localhost;Port=5433;Database=evrazDb;Username=postgres;Password=postgres");
         }
         protected override void OnModelCreating(ModelBuilder builder)
         {
