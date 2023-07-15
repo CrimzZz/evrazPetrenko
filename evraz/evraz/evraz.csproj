@@ -16,4 +16,12 @@
     <PackageReference Include="RabbitMQ.Client" Version="6.5.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <EditorConfigFiles Remove="E:\EVRAZ\evrazPetrenko\evraz\evraz\.editorconfig" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="E:\EVRAZ\evrazPetrenko\evraz\evraz\.editorconfig" />
+  </ItemGroup>
+
 </Project>
