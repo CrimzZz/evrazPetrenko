@@ -57,7 +57,7 @@ namespace RecieverService.Workers
                         var services = scope.ServiceProvider;
                         var dbContext = services.GetRequiredService<ApplicationDbContext>();
                         var raport = JsonSerializer.Deserialize<Raport>(message);
-                        raport.FormPlace = "Приём загатовок";
+                        raport.FormPlace = "Приём на отправку";
                         raport.FormDate = DateTime.Now;
                         raport.Responsables = "Fio";
                         dbContext.Raports.Add(raport);
