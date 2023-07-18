@@ -1,6 +1,10 @@
-﻿namespace evraz.Models
+﻿using Microsoft.Extensions.Configuration;
+using db.Interfaces;
+
+
+namespace StartWorkers.Settings
 {
-    public class SenderSettings
+    public class SenderSettings : IServiceSettings
     {
         private readonly IConfiguration _configuration;
 
@@ -12,5 +16,7 @@
         public string Queue => _configuration["RabbitMQ:Queues:Sender"];
         
         public string Host => _configuration["RabbitMQ:Host"];
+
+        public string PublishTo => throw new NotImplementedException();
     }
 }

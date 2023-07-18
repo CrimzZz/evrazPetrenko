@@ -1,6 +1,10 @@
-﻿namespace evraz.Models
+﻿using Microsoft.Extensions.Configuration;
+using db.Interfaces;
+
+
+namespace StartWorkers.Settings
 {
-    public class FreezerSettings
+    public class FreezerSettings : IServiceSettings
     {
         private readonly IConfiguration _configuration;
 
@@ -12,5 +16,6 @@
         public string Queue => _configuration["RabbitMQ:Queues:Freezer"];
         public string PublishTo => _configuration["RabbitMQ:Queues:Control"];
         public string Host => _configuration["RabbitMQ:Host"];
+
     }
 }

@@ -2,7 +2,7 @@
 
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace evraz.Data.DbEntities
+namespace db.DbEntities
 {
     public class Product
     {

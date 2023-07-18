@@ -24,4 +24,12 @@
     <None Include="E:\EVRAZ\evrazPetrenko\evraz\evraz\.editorconfig" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Data\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\StartWorkers\StartWorkers.csproj" />
+  </ItemGroup>
+
 </Project>

@@ -1,6 +1,5 @@
 ﻿using RabbitMQ.Client;
 using Microsoft.Extensions.Logging;
-using evraz.Models;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -10,20 +9,21 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Data;
 using Microsoft.Extensions.Configuration;
-using evraz.Data.DbEntities;
-using evraz.Data;
+using db.DbEntities;
+using db;
 using Microsoft.Extensions.DependencyInjection;
 using System.Text.Json;
+using db.Interfaces;
 
 namespace RecieverService.Workers
 {
-    public class PublisherWorker
+    public class PublisherRecieverWorker
     {
-        private readonly ILogger<PublisherWorker> _logger;
-        private readonly RecieverSettings _settings;
+        private readonly ILogger<PublisherRecieverWorker> _logger;
+        private readonly IServiceSettings _settings;
         private readonly IServiceProvider _serviceProvider;
 
-        public PublisherWorker(ILogger<PublisherWorker> logger, IServiceProvider services, RecieverSettings settings)
+        public PublisherRecieverWorker(ILogger<PublisherRecieverWorker> logger, IServiceProvider services, IServiceSettings settings)
         {
             _logger = logger;
             _settings = settings;

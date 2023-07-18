@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ControlService\ControlService.csproj" />
+    <ProjectReference Include="..\db\db.csproj" />
     <ProjectReference Include="..\FreezerService\FreezerService.csproj" />
     <ProjectReference Include="..\OwenService\OwenService.csproj" />
     <ProjectReference Include="..\ProfilerService\ProfilerService.csproj" />

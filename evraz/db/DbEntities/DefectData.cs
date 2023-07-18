@@ -1,4 +1,4 @@
-﻿namespace evraz.Data.DbEntities
+﻿namespace db.DbEntities
 {
     public class DefectData
     {

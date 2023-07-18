@@ -1,8 +1,8 @@
-﻿using evraz.Data.DbEntities;
+﻿using db.DbEntities;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
-namespace evraz.Data
+namespace db
 {
     public class ApplicationDbContext : IdentityDbContext
     {

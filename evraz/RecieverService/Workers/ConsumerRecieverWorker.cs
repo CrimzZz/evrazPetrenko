@@ -11,18 +11,19 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Text.Json;
 using Microsoft.Extensions.DependencyInjection;
-using evraz.Data;
-using evraz.Data.DbEntities;
+using db;
+using db.DbEntities;
+using db.Interfaces;
 
 namespace RecieverService.Workers
 {
-    public class ConsumerWorker
+    public class ConsumerRecieverWorker
     {
-        private readonly ILogger<ConsumerWorker> _logger;
-        private readonly RecieverSettings _settings;
+        private readonly ILogger<ConsumerRecieverWorker> _logger;
+        private readonly IServiceSettings _settings;
         private readonly IServiceProvider _serviceProvider;
 
-        public ConsumerWorker(ILogger<ConsumerWorker> logger, IServiceProvider services, RecieverSettings settings)
+        public ConsumerRecieverWorker(ILogger<ConsumerRecieverWorker> logger, IServiceProvider services, IServiceSettings settings)
         {
             _logger = logger;
             _serviceProvider = services;

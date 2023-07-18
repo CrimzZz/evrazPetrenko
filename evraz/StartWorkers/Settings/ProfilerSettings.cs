@@ -1,6 +1,10 @@
-﻿namespace evraz.Models
+﻿using Microsoft.Extensions.Configuration;
+using db.Interfaces;
+
+
+namespace StartWorkers.Settings
 {
-    public class ProfilerSettings
+    public class ProfilerSettings : IServiceSettings
     {
         private readonly IConfiguration _configuration;
 
@@ -12,5 +16,6 @@
         public string Queue => _configuration["RabbitMQ:Queues:Profiler"];
         public string PublishTo => _configuration["RabbitMQ:Queues:Freezer"];
         public string Host => _configuration["RabbitMQ:Host"];
+
     }
 }

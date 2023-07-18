@@ -10,20 +10,21 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Data;
 using Microsoft.Extensions.Configuration;
-using evraz.Data.DbEntities;
-using evraz.Data;
+using db.DbEntities;
+using db;
 using Microsoft.Extensions.DependencyInjection;
 using System.Text.Json;
+using db.Interfaces;
 
 namespace Profiler.Workers
 {
     public class PublisherProfilerWorker
     {
         private readonly ILogger<PublisherProfilerWorker> _logger;
-        private readonly RecieverSettings _settings;
+        private readonly IServiceSettings _settings;
         private readonly IServiceProvider _serviceProvider;
 
-        public PublisherProfilerWorker(ILogger<PublisherProfilerWorker> logger, IServiceProvider services, RecieverSettings settings)
+        public PublisherProfilerWorker(ILogger<PublisherProfilerWorker> logger, IServiceProvider services, IServiceSettings settings)
         {
             _logger = logger;
             _settings = settings;

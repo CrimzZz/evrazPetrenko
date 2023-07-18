@@ -1,6 +1,9 @@
-﻿namespace evraz.Models
+﻿using Microsoft.Extensions.Configuration;
+using db.Interfaces;
+
+namespace StartWorkers.Settings
 {
-    public class ControlSettings
+    public class ControlSettings : IServiceSettings
     {
         private readonly IConfiguration _configuration;
 

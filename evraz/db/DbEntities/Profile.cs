@@ -1,6 +1,6 @@
-﻿namespace evraz.Data.DbEntities
+﻿namespace db.DbEntities
 {
-    public class Brand
+    public class Profile
     {
         public int Id { get; set; }
         public string Name { get; set; }

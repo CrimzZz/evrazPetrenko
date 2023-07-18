@@ -1,6 +1,5 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
-using evraz.Models;
 using RabbitMQ;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
@@ -11,18 +10,19 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Text.Json;
 using Microsoft.Extensions.DependencyInjection;
-using evraz.Data;
-using evraz.Data.DbEntities;
+using db;
+using db.DbEntities;
+using db.Interfaces;
 
 namespace ControlService.Workers
 {
     public class ConsumerControlWorker
     {
         private readonly ILogger<ConsumerControlWorker> _logger;
-        private readonly RecieverSettings _settings;
+        private readonly IServiceSettings _settings;
         private readonly IServiceProvider _serviceProvider;
 
-        public ConsumerControlWorker(ILogger<ConsumerControlWorker> logger, IServiceProvider services, RecieverSettings settings)
+        public ConsumerControlWorker(ILogger<ConsumerControlWorker> logger, IServiceProvider services, IServiceSettings settings)
         {
             _logger = logger;
             _serviceProvider = services;

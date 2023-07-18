@@ -1,6 +1,10 @@
-﻿namespace evraz.Models
+﻿using Microsoft.Extensions.Configuration;
+using db.Interfaces;
+
+
+namespace StartWorkers.Settings
 {
-    public class RecieverSettings
+    public class RecieverSettings : IServiceSettings
     {
         private readonly IConfiguration configuration;
 

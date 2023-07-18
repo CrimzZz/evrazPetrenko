@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
-using evraz.Models;
+
 using RabbitMQ;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
@@ -11,18 +11,19 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Text.Json;
 using Microsoft.Extensions.DependencyInjection;
-using evraz.Data;
-using evraz.Data.DbEntities;
+using db;
+using db.DbEntities;
+using db.Interfaces;
 
 namespace Profiler.Workers
 {
     public class ConsumerProfilerWorker
     {
         private readonly ILogger<ConsumerProfilerWorker> _logger;
-        private readonly RecieverSettings _settings;
+        private readonly IServiceSettings _settings;
         private readonly IServiceProvider _serviceProvider;
 
-        public ConsumerProfilerWorker(ILogger<ConsumerProfilerWorker> logger, IServiceProvider services, RecieverSettings settings)
+        public ConsumerProfilerWorker(ILogger<ConsumerProfilerWorker> logger, IServiceProvider services, IServiceSettings settings)
         {
             _logger = logger;
             _serviceProvider = services;

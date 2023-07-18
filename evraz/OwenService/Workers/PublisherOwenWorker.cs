@@ -1,6 +1,5 @@
 ﻿using RabbitMQ.Client;
 using Microsoft.Extensions.Logging;
-using evraz.Models;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -10,20 +9,21 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Data;
 using Microsoft.Extensions.Configuration;
-using evraz.Data.DbEntities;
-using evraz.Data;
 using Microsoft.Extensions.DependencyInjection;
 using System.Text.Json;
+using db;
+using db.DbEntities;
+using db.Interfaces;
 
 namespace OwenService.Workers
 {
     public class PublisherOwenWorker
     {
         private readonly ILogger<PublisherOwenWorker> _logger;
-        private readonly RecieverSettings _settings;
+        private readonly IServiceSettings _settings;
         private readonly IServiceProvider _serviceProvider;
 
-        public PublisherOwenWorker(ILogger<PublisherOwenWorker> logger, IServiceProvider services, RecieverSettings settings)
+        public PublisherOwenWorker(ILogger<PublisherOwenWorker> logger, IServiceProvider services, IServiceSettings settings)
         {
             _logger = logger;
             _settings = settings;
