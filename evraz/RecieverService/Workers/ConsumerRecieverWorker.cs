@@ -1,6 +1,5 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
-using evraz.Models;
 using RabbitMQ;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
