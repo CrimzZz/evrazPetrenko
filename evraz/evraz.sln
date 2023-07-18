@@ -3,22 +3,26 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.6.33829.357
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "evraz", "evraz\evraz.csproj", "{97D79171-7EE2-4D64-850D-3810D8F67EA8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "evraz", "evraz\evraz.csproj", "{97D79171-7EE2-4D64-850D-3810D8F67EA8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecieverService", "RecieverService\RecieverService.csproj", "{8BC80C90-322B-4A76-A33B-A6D0372F087B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RecieverService", "RecieverService\RecieverService.csproj", "{8BC80C90-322B-4A76-A33B-A6D0372F087B}"
 	ProjectSection(ProjectDependencies) = postProject
 		{97D79171-7EE2-4D64-850D-3810D8F67EA8} = {97D79171-7EE2-4D64-850D-3810D8F67EA8}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OwenService", "OwenService\OwenService.csproj", "{64FCE22B-1EC1-4E5F-814F-20BCF4B6BDAF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OwenService", "OwenService\OwenService.csproj", "{64FCE22B-1EC1-4E5F-814F-20BCF4B6BDAF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProfilerService", "ProfilerService\ProfilerService.csproj", "{8BB3083A-9DD5-4FD4-84D4-7A28809A256E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProfilerService", "ProfilerService\ProfilerService.csproj", "{8BB3083A-9DD5-4FD4-84D4-7A28809A256E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FreezerService", "FreezerService\FreezerService.csproj", "{D617C247-82D9-4C2C-BE33-36FEF3E8EB75}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FreezerService", "FreezerService\FreezerService.csproj", "{D617C247-82D9-4C2C-BE33-36FEF3E8EB75}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ControlService", "ControlService\ControlService.csproj", "{198F0DFC-6BFB-427A-AB1B-5C698395FA04}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ControlService", "ControlService\ControlService.csproj", "{198F0DFC-6BFB-427A-AB1B-5C698395FA04}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SenderService", "SenderService\SenderService.csproj", "{37ECD86B-BDD5-4F24-A223-7D003D0F1173}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SenderService", "SenderService\SenderService.csproj", "{37ECD86B-BDD5-4F24-A223-7D003D0F1173}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Visual", "практика\Visual.csproj", "{5578C183-68C5-47DD-85B2-88371591F815}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StartWorkers", "StartWorkers\StartWorkers.csproj", "{13F36796-7D1B-4554-A2A2-5A2BC8615185}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -54,6 +58,14 @@ Global
 		{37ECD86B-BDD5-4F24-A223-7D003D0F1173}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{37ECD86B-BDD5-4F24-A223-7D003D0F1173}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{37ECD86B-BDD5-4F24-A223-7D003D0F1173}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5578C183-68C5-47DD-85B2-88371591F815}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5578C183-68C5-47DD-85B2-88371591F815}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5578C183-68C5-47DD-85B2-88371591F815}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5578C183-68C5-47DD-85B2-88371591F815}.Release|Any CPU.Build.0 = Release|Any CPU
+		{13F36796-7D1B-4554-A2A2-5A2BC8615185}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{13F36796-7D1B-4554-A2A2-5A2BC8615185}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{13F36796-7D1B-4554-A2A2-5A2BC8615185}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{13F36796-7D1B-4554-A2A2-5A2BC8615185}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

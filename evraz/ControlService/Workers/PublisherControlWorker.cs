@@ -15,15 +15,15 @@ using evraz.Data;
 using Microsoft.Extensions.DependencyInjection;
 using System.Text.Json;
 
-namespace RecieverService.Workers
+namespace ControlService.Workers
 {
-    public class PublisherWorker
+    public class PublisherControlWorker
     {
-        private readonly ILogger<PublisherWorker> _logger;
+        private readonly ILogger<PublisherControlWorker> _logger;
         private readonly RecieverSettings _settings;
         private readonly IServiceProvider _serviceProvider;
 
-        public PublisherWorker(ILogger<PublisherWorker> logger, IServiceProvider services, RecieverSettings settings)
+        public PublisherControlWorker(ILogger<PublisherControlWorker> logger, IServiceProvider services, RecieverSettings settings)
         {
             _logger = logger;
             _settings = settings;
@@ -53,7 +53,7 @@ namespace RecieverService.Workers
                             var services = scope.ServiceProvider;
                             var dbContext = services.GetRequiredService<ApplicationDbContext>();
                             var raport = JsonSerializer.Deserialize<Raport>(message);
-                            raport.FormPlace = "Отправка с печи";
+                            raport.FormPlace = "Отправка на отгрузку";
                             raport.FormDate = DateTime.Now;
                             raport.Responsables = "Fio";
                             dbContext.Raports.Add(raport);

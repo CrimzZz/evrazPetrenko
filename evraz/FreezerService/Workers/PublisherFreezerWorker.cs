@@ -15,15 +15,15 @@ using evraz.Data;
 using Microsoft.Extensions.DependencyInjection;
 using System.Text.Json;
 
-namespace RecieverService.Workers
+namespace FreezerService.Workers
 {
-    public class PublisherWorker
+    public class PublisherFreezerWorker
     {
-        private readonly ILogger<PublisherWorker> _logger;
+        private readonly ILogger<PublisherFreezerWorker> _logger;
         private readonly RecieverSettings _settings;
         private readonly IServiceProvider _serviceProvider;
 
-        public PublisherWorker(ILogger<PublisherWorker> logger, IServiceProvider services, RecieverSettings settings)
+        public PublisherFreezerWorker(ILogger<PublisherFreezerWorker> logger, IServiceProvider services, RecieverSettings settings)
         {
             _logger = logger;
             _settings = settings;

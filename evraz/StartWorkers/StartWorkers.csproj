@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Library</OutputType>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ControlService\ControlService.csproj" />
+    <ProjectReference Include="..\FreezerService\FreezerService.csproj" />
+    <ProjectReference Include="..\OwenService\OwenService.csproj" />
+    <ProjectReference Include="..\ProfilerService\ProfilerService.csproj" />
+    <ProjectReference Include="..\RecieverService\RecieverService.csproj" />
+    <ProjectReference Include="..\SenderService\SenderService.csproj" />
+    <ProjectReference Include="..\практика\Visual.csproj" />
+  </ItemGroup>
+
+</Project>
