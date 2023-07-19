@@ -9,7 +9,7 @@ using Profiler.Workers;
 using RecieverService.Workers;
 using SenderService.Workers;
 using SenderServices.Workers;
-using StartWorkers.Interfaces;
+using db.Interfaces;
 using StartWorkers.Settings;
 using System;
 using System.Collections.Generic;
@@ -23,10 +23,6 @@ namespace StartWorkers
     {
         public void ConfigureServices(IServiceCollection services, IConfiguration configuration)
         {
-
-            
-
-            
             services.AddSingleton<IServiceSettings, ControlSettings>();
             services.AddSingleton<IServiceSettings, FreezerSettings>();
             services.AddSingleton<IServiceSettings, OwenSettings>();
