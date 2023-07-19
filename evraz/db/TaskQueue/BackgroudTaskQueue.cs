@@ -7,13 +7,13 @@ using System.Threading.Tasks;
 
 namespace db.TaskQueue
 {
-    internal class BackgroudTaskQueue : IBackgroundTaskQueue
+    public class BackgroudTaskQueue : IBackgroundTaskQueue
     {
         private ConcurrentQueue<String> queue = new ConcurrentQueue<String>();
         private SemaphoreSlim signal = new SemaphoreSlim(0);
         public int Size => queue.Count;
 
-        public async string DequeueAsync(CancellationToken cancellationToken)
+        public async Task<String> DequeueAsync(CancellationToken cancellationToken)
         {
             await signal.WaitAsync(cancellationToken);
             queue.TryDequeue(out var item);
@@ -23,7 +23,13 @@ namespace db.TaskQueue
 
         public void QueueBackgroundWorkItem(string message)
         {
-            throw new NotImplementedException();
+            if (message == null)
+            {
+                throw new ArgumentNullException(nameof(message));
+            }
+            queue.Enqueue(message);
+
+            signal.Release();
         }
     }
 }

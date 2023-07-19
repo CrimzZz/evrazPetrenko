@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace db.TaskQueue
 {
-    internal interface IBackgroundTaskQueue
+    public interface IBackgroundTaskQueue
     {
         int Size { get; }
 
         void QueueBackgroundWorkItem(string message);
 
-        String DequeueAsync(CancellationToken cancellationToken);
+        Task<string> DequeueAsync(CancellationToken cancellationToken);
     }
 }

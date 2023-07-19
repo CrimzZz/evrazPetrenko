@@ -14,6 +14,7 @@ using db;
 using Microsoft.Extensions.DependencyInjection;
 using System.Text.Json;
 using db.Interfaces;
+using db.Settings;
 
 namespace FreezerService.Workers
 {
@@ -26,7 +27,7 @@ namespace FreezerService.Workers
         public PublisherFreezerWorker(ILogger<PublisherFreezerWorker> logger, IServiceProvider services, IServiceSettings settings)
         {
             _logger = logger;
-            _settings = settings;
+            _settings = services.GetRequiredService<FreezerSettings>();
             _serviceProvider = services;
         }
 

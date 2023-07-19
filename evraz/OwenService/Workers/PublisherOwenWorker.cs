@@ -14,6 +14,7 @@ using System.Text.Json;
 using db;
 using db.DbEntities;
 using db.Interfaces;
+using db.Settings;
 
 namespace OwenService.Workers
 {
@@ -26,7 +27,7 @@ namespace OwenService.Workers
         public PublisherOwenWorker(ILogger<PublisherOwenWorker> logger, IServiceProvider services, IServiceSettings settings)
         {
             _logger = logger;
-            _settings = settings;
+            _settings = services.GetRequiredService<OwenSettings>();
             _serviceProvider = services;
         }
 

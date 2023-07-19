@@ -15,6 +15,7 @@ using db;
 using Microsoft.Extensions.DependencyInjection;
 using System.Text.Json;
 using db.Interfaces;
+using db.Settings;
 
 namespace Profiler.Workers
 {
@@ -27,7 +28,7 @@ namespace Profiler.Workers
         public PublisherProfilerWorker(ILogger<PublisherProfilerWorker> logger, IServiceProvider services, IServiceSettings settings)
         {
             _logger = logger;
-            _settings = settings;
+            _settings = services.GetRequiredService<ProfilerSettings>();
             _serviceProvider = services;
         }
 

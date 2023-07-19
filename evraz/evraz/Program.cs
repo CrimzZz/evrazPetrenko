@@ -2,6 +2,7 @@
 using db;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using StartWorkers;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,6 +16,8 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.Requ
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
 builder.Services.AddControllersWithViews();
+Startup startup = new Startup();
+startup.ConfigureServices(builder.Services);
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

@@ -13,6 +13,7 @@ using Microsoft.Extensions.DependencyInjection;
 using db;
 using db.DbEntities;
 using db.Interfaces;
+using db.TaskQueue;
 
 namespace FreezerService.Workers
 {
@@ -29,7 +30,7 @@ namespace FreezerService.Workers
             _settings = settings;
         }
 
-        public async void Consumer()
+        public async void Consumer(IBackgroundTaskQueue backgroundTaskQueue)
         {
             var factory = new ConnectionFactory { HostName = _settings.Host };
             using var connection = factory.CreateConnection();
@@ -63,6 +64,8 @@ namespace FreezerService.Workers
                         dbContext.Raports.Add(raport);
                         dbContext.SaveChanges();
                         _logger.LogInformation("Saved");
+                        backgroundTaskQueue.QueueBackgroundWorkItem(message);
+                        channel.BasicAck(ea.DeliveryTag, false);
                     } 
                     catch
                     {
@@ -72,7 +75,7 @@ namespace FreezerService.Workers
                 
                 
             };
-            channel.BasicConsume(queue: "hello",
+            channel.BasicConsume(queue: _settings.Queue,
                                  autoAck: true,
                                  consumer: consumer);
         }

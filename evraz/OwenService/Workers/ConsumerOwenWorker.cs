@@ -13,6 +13,7 @@ using Microsoft.Extensions.DependencyInjection;
 using db;
 using db.DbEntities;
 using db.Interfaces;
+using db.Settings;
 
 namespace OwenService.Workers
 {
@@ -26,7 +27,7 @@ namespace OwenService.Workers
         {
             _logger = logger;
             _serviceProvider = services;
-            _settings = settings;
+            _settings = services.GetRequiredService<OwenSettings>();
         }
 
         public async void Consumer()
@@ -72,7 +73,7 @@ namespace OwenService.Workers
                 
                 
             };
-            channel.BasicConsume(queue: "hello",
+            channel.BasicConsume(queue: _settings.Queue,
                                  autoAck: true,
                                  consumer: consumer);
         }

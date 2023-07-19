@@ -14,6 +14,7 @@ using db;
 using Microsoft.Extensions.DependencyInjection;
 using System.Text.Json;
 using db.Interfaces;
+using db.Settings;
 
 namespace SenderServices.Workers
 {
@@ -26,7 +27,7 @@ namespace SenderServices.Workers
         public PublisherSenderWorker(ILogger<PublisherSenderWorker> logger, IServiceProvider services, IServiceSettings settings)
         {
             _logger = logger;
-            _settings = settings;
+            _settings = services.GetRequiredService<SenderSettings>();
             _serviceProvider = services;
         }
 

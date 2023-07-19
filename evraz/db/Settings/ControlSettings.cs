@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.Configuration;
 using db.Interfaces;
 
-namespace StartWorkers.Settings
+namespace db.Settings
 {
     public class ControlSettings : IServiceSettings
     {

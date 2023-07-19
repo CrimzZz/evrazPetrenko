@@ -10,7 +10,7 @@ using RecieverService.Workers;
 using SenderService.Workers;
 using SenderServices.Workers;
 using db.Interfaces;
-using StartWorkers.Settings;
+using db.Settings;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,7 +21,7 @@ namespace StartWorkers
 {
     public class Startup
     {
-        public void ConfigureServices(IServiceCollection services, IConfiguration configuration)
+        public void ConfigureServices(IServiceCollection services)
         {
             services.AddSingleton<IServiceSettings, ControlSettings>();
             services.AddSingleton<IServiceSettings, FreezerSettings>();

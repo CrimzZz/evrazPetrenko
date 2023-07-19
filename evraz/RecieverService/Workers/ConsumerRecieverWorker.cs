@@ -13,6 +13,7 @@ using Microsoft.Extensions.DependencyInjection;
 using db;
 using db.DbEntities;
 using db.Interfaces;
+using db.Settings;
 
 namespace RecieverService.Workers
 {
@@ -22,11 +23,11 @@ namespace RecieverService.Workers
         private readonly IServiceSettings _settings;
         private readonly IServiceProvider _serviceProvider;
 
-        public ConsumerRecieverWorker(ILogger<ConsumerRecieverWorker> logger, IServiceProvider services, IServiceSettings settings)
+        public ConsumerRecieverWorker(ILogger<ConsumerRecieverWorker> logger, IServiceProvider services)
         {
             _logger = logger;
             _serviceProvider = services;
-            _settings = settings;
+            _settings = services.GetRequiredService<RecieverSettings>();
         }
 
         public async void Consumer()
@@ -72,7 +73,7 @@ namespace RecieverService.Workers
                 
                 
             };
-            channel.BasicConsume(queue: "hello",
+            channel.BasicConsume(queue: _settings.Queue,
                                  autoAck: true,
                                  consumer: consumer);
         }

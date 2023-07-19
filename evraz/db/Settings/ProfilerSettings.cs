@@ -2,7 +2,7 @@
 using db.Interfaces;
 
 
-namespace StartWorkers.Settings
+namespace db.Settings
 {
     public class ProfilerSettings : IServiceSettings
     {

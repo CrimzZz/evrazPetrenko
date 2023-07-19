@@ -14,6 +14,7 @@ using Microsoft.Extensions.DependencyInjection;
 using db;
 using db.DbEntities;
 using db.Interfaces;
+using db.Settings;
 
 namespace Profiler.Workers
 {
@@ -27,7 +28,7 @@ namespace Profiler.Workers
         {
             _logger = logger;
             _serviceProvider = services;
-            _settings = settings;
+            _settings = _settings = services.GetRequiredService<ProfilerSettings>(); ;
         }
 
         public async void Consumer()
@@ -73,7 +74,7 @@ namespace Profiler.Workers
                 
                 
             };
-            channel.BasicConsume(queue: "hello",
+            channel.BasicConsume(queue: _settings.Queue,
                                  autoAck: true,
                                  consumer: consumer);
         }
